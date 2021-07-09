@@ -1,12 +1,23 @@
-#bash tools/dist_test.sh configs/darkface/cascade_rcnn_r101_fpn_dconv_c3-c5_1x_darface.py work_dirs/cascade_rcnn_r101_fpn_dconv_c3-c5_1x_darface/latest.pth 4 --eval bbox
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop/epoch_24.pth 8 --eval bbox
 
-#bash tools/dist_test.sh configs/darkface/cascade_rcnn_r50_fpn_dconv_c3-c5_darface.py work_dirs/cascade_rcnn_r50_fpn_dconv_c3-c5_darface/epoch_80.pth 4 --eval bbox
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop/epoch_24.pth 8 --format-only --options "jsonfile_prefix=./test-run_results"
 
-bash tools/dist_test.sh configs/darkface/cascade_rcnn_r50_fpn_dconv_c3-c5_darface_2.py work_dirs/cascade_rcnn_r50_fpn_dconv_c3-c5_darface_2/epoch_160.pth 4 --eval bbox
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop_anchor_tinaface.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop_anchor_tinaface/epoch_24.pth 8 --eval bbox
 
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop_resnest200.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_2600_3000_randomcrop_resnest200/epoch_24.pth 8 --eval bbox
 
-python tools/analysis_tools/analyze_results.py configs/darkface/dbhead_r50_fpn_dconv_c3-c5_darface.py db_r50_tta.pkl Out_Imgs
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_2600_4000_randomcrop.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_2600_4000_randomcrop/epoch_36.pth 8 --eval bbox
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=29513 nohup bash tools/dist_train.sh configs/darkface/cascade_rcnn_r50_fpn_dconv_c3-c5_DCE_WideDark.py 4 >cascade_rcnn_r50_fpn_dconv_c3-c5_DCE_WideDark.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_2600_4000_randomcrop_boxshift.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_2600_4000_randomcrop_boxshift/epoch_36.pth 8 --eval bbox
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 bash tools/dist_test.sh configs/darkface/dbhead_r50_fpn_dconv_c3-c5_darface.py work_dirs/dbhead_r50_fpn_dconv_c3-c5_darface/epoch_155.pth 4 --eval bbox --out db_r50_tta.pkl
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_gfocal_r2n101_dcn_fpn_ms2x_3000_4000_randomcrop.py work_dirs/face_gfocal_r2n101_dcn_fpn_ms2x_3000_4000_randomcrop/epoch_36.pth 8 --eval bbox
+
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal/face_strategy_2600_4000.py work_dirs/face_strategy_2600_4000/epoch_36.pth 8 --eval bbox
+
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/gfocal_new/2600_4000_anchor_refine.py work_dirs/2600_4000_anchor_refine/epoch_36.pth 8 --eval bbox
+
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/ug2_scale/2000_2800_visdrone_anchor_ori.py work_dirs/2000_2800_visdrone_anchor_ori/epoch_36.pth 8 --format-only --options "jsonfile_prefix=./test-darkface"
+
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 bash tools/dist_test.sh configs/darkface2/2600_4000_anchor_refine_strategy_basescale.py work_dirs/2600_4000_anchor_refine_strategy_basescale/epoch_40.pth 8 --format-only --options "jsonfile_prefix=Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_2xmsrcr"
+
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=29101 ./tools/dist_test.sh configs/ug2_scale/2000_2800_visdrone_anchor_ori.py work_dirs/2000_2800_visdrone_anchor_ori/epoch_36.pth 8 --format-only --options "jsonfile_prefix=./test-darkface"

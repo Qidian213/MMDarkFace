@@ -10,10 +10,18 @@ BBOX_VOTE_ENABLED = True
 list_temp = range(1, 3)
 
 paths = [
-    'Out_Jsons_Res/cascade_rcnn_r50_fpn_dconv_c3-c5_darface_boxshift_1xmsrcr.bbox.json',
-    'Out_Jsons_Res/cascade_rcnn_r50_fpn_dconv_c3-c5_darface_boxshift_2xmsrcr.bbox.json',
+    'Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_1xmsrxr.bbox.json',
+    'Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_2xmsrcr.bbox.json',
+    'Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_cutmix.bbox.json',
+    'Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_dce.bbox.json',
+    'Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_wider_cutmix.bbox.json',
 ]
 
+# paths = [
+    # 'Out_Jsons_Res/face_strategy_2600_4000_soft_flip.bbox.json',
+    # 'Out_Jsons_Res/face_gfocal_r2n101_dcn_fpn_ms2x_2600_4000_randomcrop_anchor_dcnall.bbox.json',
+    # 'Out_Jsons_Res/2600_4000_anchor_refine_strategy_basescale_wider_cutmix.bbox.json',
+# ]
 save_file = 'Out_Jsons_Res/ensemble.json'
 
 iou_thr = 0.5
